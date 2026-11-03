@@ -23,6 +23,14 @@ export default function App() {
     fetchPosts();
   }, []);
 
+  if (loading) {
+    return (
+      <View>
+        <Text>Loading...</Text>
+      </View>
+    );
+  }
+
   return (
     <View>
       <Text>Activity 5</Text>
