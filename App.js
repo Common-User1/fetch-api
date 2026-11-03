@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, ScrollView } from 'react-native';
 
 export default function App() {
   const [posts, setPosts] = useState([]);
@@ -32,8 +32,14 @@ export default function App() {
   }
 
   return (
-    <View>
-      <Text>Activity 5</Text>
-    </View>
+    <ScrollView>
+      <Text>Posts from JSONPlaceholder</Text>
+      {posts.map((post) => (
+        <View key={post.id}>
+          <Text>{post.title}</Text>
+          <Text>{post.body}</Text>
+        </View>
+      ))}
+    </ScrollView>
   );
 }
