@@ -6,7 +6,14 @@ export default function App() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    console.log('Component mounted');
+    const fetchPosts = async () => {
+      const response = await fetch(
+        'https://jsonplaceholder.typicode.com/posts?_limit=10'
+      );
+      console.log('Response status:', response.status);
+    };
+
+    fetchPosts();
   }, []);
 
   return (
