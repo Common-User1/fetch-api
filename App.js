@@ -10,7 +10,10 @@ export default function App() {
       const response = await fetch(
         'https://jsonplaceholder.typicode.com/posts?_limit=10'
       );
-      console.log('Response status:', response.status);
+      const json = await response.json();
+      console.log('Number of posts:', json.length);
+      setPosts(json);
+      setLoading(false);
     };
 
     fetchPosts();
